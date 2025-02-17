@@ -44,6 +44,25 @@ fun getUserAction(): Char {
 }
 
 
+/**
+ * Get a specific task from the task list
+ * returning their selected task as done
+ */
+
+fun getTask(tasks: MutableList<Task>): Task {
+    //Show the tasks, numbered
+    var num = 1
+    for(task in tasks) {
+        print("$num: ")
+        print(" ${task.priority} ")
+        println(task.name)
+        num++
+    }
+    //get the number of tasks from user
+    print("Pick a task")
+    val taskNum = readln().toInt()
+    //return the selected task object
+}
 
 fun getNewTask(): Task {
     println("New task")
