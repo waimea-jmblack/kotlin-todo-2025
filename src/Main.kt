@@ -2,6 +2,7 @@ fun main() {
     val tasks = mutableListOf<Task>()
 
     // Make up some fake tasks for testing
+
     tasks.add(Task("Feed the cat", 3))
     tasks.add(Task("Kick the dog", 5))
     tasks.add(Task("Lick the fish", 2))
@@ -17,7 +18,7 @@ fun main() {
         showTasks(tasks)
         when(getUserAction()) {
             'x' -> break
-            'n' -> println("NEW")
+            'n' -> tasks.add(getNewTask())
             'd' -> println("DONE")
         }
     }
@@ -41,6 +42,22 @@ fun getUserAction(): Char {
     }
 
 }
+
+
+
+fun getNewTask(): Task {
+    println("New task")
+
+    print("Task name: ")
+    val name = readln()
+
+    print("Priority: ")
+    val priority = readln().toInt()
+
+    return Task(name, priority)
+}
+
+
 
 fun showTasks(tasks: MutableList<Task>) {
     for(task in tasks) {
